@@ -10,16 +10,16 @@ zerops:
 
       # build your application
       build:
+        - wget https://downloads.joomla.org/cms/joomla5/5-2-0/Joomla_5-2-0-Stable-Full_Package.zip
+        - unzip Joomla_5-2-0-Stable-Full_Package.zip
 
       # select which files / folders to deploy
       # after the build succesfully finished
-      deployFiles: ./
+      deployFiles: .
 
       # *optional*: which files / folders
       # to cache for the next use
       cache:
-        - vendor
-        - composer.lock
 
     # ==== how to run your application ====
     run:
@@ -37,8 +37,7 @@ zerops:
       documentRoot: public
 
       initCommands:
-        - wget https://downloads.joomla.org/cms/joomla5/5-2-0/Joomla_5-2-0-Stable-Full_Package.zip
-        - unzip Joomla_5-2-0-Stable-Full_Package.zip
+        - chown -R zerops:zerops /var/www/
         - php installation/joomla.php install \
             --site-name="j5" \
             --admin-user="j5" \

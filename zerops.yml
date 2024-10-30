@@ -35,7 +35,7 @@ zerops:
       documentRoot: public
 
       initCommands:
-        - wget https://downloads.joomla.org/cms/joomla5/5-2-0/Joomla_5-2-0-Stable-Full_Package.zip
+        - wget -O https://downloads.joomla.org/cms/joomla5/5-2-0/Joomla_5-2-0-Stable-Full_Package.zip
         - sudo -u zerops unzip Joomla_5-2-0-Stable-Full_Package.zip
         #- chown -R zerops:zerops /var/www/
         - sudo -u php installation/joomla.php install \

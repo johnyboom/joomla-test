@@ -17,6 +17,7 @@ zerops:
       # after the build succesfully finished
       deployFiles:
         - .
+        - joomla.zip
 
       # *optional*: which files / folders
       # to cache for the next use

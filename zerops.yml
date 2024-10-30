@@ -10,8 +10,22 @@ zerops:
 
       # build your application
       build:
-        - wget https://downloads.joomla.org/cms/joomla5/5-2-0/Joomla_5-2-0-Stable-Full_Package.zip?format=zip
+        - wget https://downloads.joomla.org/cms/joomla5/5-2-0/Joomla_5-2-0-Stable-Full_Package.zip
         - unzip Joomla_5-2-0-Stable-Full_Package.zip
+        - php installation/joomla.php install \
+            --site-name="j5" \
+            --admin-user="j5" \
+            --admin-username="j5" \
+            --admin-password="j5nikdo@nikde.cz" \
+            --admin-email="nikdo@nikde.cz" \
+            --db-type="mysql" \
+            --db-host=$mariadb0_hostname \
+            --db-user=$mariadb0_user \
+            --db-pass=$mariadb0_password \
+            --db-name=$mariadb0_dbName \
+            --db-prefix="t6d95_" \
+            --db-encryption=0 \
+            --public-folder="/var/www/public"
 
       # select which files / folders to deploy
       # after the build succesfully finished
@@ -36,4 +50,4 @@ zerops:
       # files from deploy are placed at /var/www
       # this example would point public traffic
       # to /var/www/public
-      documentRoot: .
+      documentRoot: public

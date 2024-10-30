@@ -16,7 +16,7 @@ zerops:
       # select which files / folders to deploy
       # after the build succesfully finished
       deployFiles:
-        - *
+        - .
 
       # *optional*: which files / folders
       # to cache for the next use

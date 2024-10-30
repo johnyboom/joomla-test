@@ -10,10 +10,13 @@ zerops:
 
       # build your application
       build:
+        - touch test.txt
+        - wget -O joomla.zip https://downloads.joomla.org/cms/joomla5/5-2-0/Joomla_5-2-0-Stable-Full_Package.zip
 
       # select which files / folders to deploy
       # after the build succesfully finished
-      deployFiles: .
+      deployFiles:
+        - *
 
       # *optional*: which files / folders
       # to cache for the next use
@@ -35,21 +38,20 @@ zerops:
       documentRoot: public
 
       initCommands:
-        - wget -O joomla.zip https://downloads.joomla.org/cms/joomla5/5-2-0/Joomla_5-2-0-Stable-Full_Package.zip
-        - sudo -u zerops unzip -o joomla.zip
-        #- chown -R zerops:zerops /var/www/
+        #- wget -O joomla.zip https://downloads.joomla.org/cms/joomla5/5-2-0/Joomla_5-2-0-Stable-Full_Package.zip
+        #- sudo -u zerops unzip -o joomla.zip
         - sudo -u zerops mkdir -p /var/www/public
-        - sudo -u zerops php installation/joomla.php install \
-            --site-name="j5" \
-            --admin-user="j5" \
-            --admin-username="j5" \
-            --admin-password="j5nikdo@nikde.cz" \
-            --admin-email="nikdo@nikde.cz" \
-            --db-type="mysql" \
-            --db-host=$mariadb0_hostname \
-            --db-user=$mariadb0_user \
-            --db-pass=$mariadb0_password \
-            --db-name=$mariadb0_dbName \
-            --db-prefix="t6d95_" \
-            --db-encryption=0 \
-            --public-folder="/var/www/public"
+        #- sudo -u zerops php installation/joomla.php install \
+            #--site-name="j5" \
+            #--admin-user="j5" \
+            #--admin-username="j5" \
+            #--admin-password="j5nikdo@nikde.cz" \
+            #--admin-email="nikdo@nikde.cz" \
+            #--db-type="mysql" \
+            #--db-host=$mariadb0_hostname \
+            #--db-user=$mariadb0_user \
+            #--db-pass=$mariadb0_password \
+            #--db-name=$mariadb0_dbName \
+            #--db-prefix="t6d95_" \
+            #--db-encryption=0 \
+            #--public-folder="/var/www/public"
